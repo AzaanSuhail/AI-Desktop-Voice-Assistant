@@ -86,6 +86,8 @@ if __name__=="__main__":
             webbrowser.open("https://chat.openai.com/")
         elif 'open notion' in query:
             webbrowser.open("https://www.notion.so/Oops-a371bf35538e4a08b69a6b4bc7c268d7")
+        elif 'open github' in query:
+            webbrowser.open("https://github.com/AzaanSuhail")
         # elif 'play music' in query:
         #     music_dr="D:\\Non Critical\\songs\\favouritesongs"
         #     songs=os.listdir(music_dr)
