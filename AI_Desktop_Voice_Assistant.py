@@ -1,12 +1,12 @@
 import pyttsx3
 #pyttsx3 is python library which was made by Nitesh M bhatt and it converts text to Speech
 
-import datetime #it is a inbuilt library in python 
+import datetime #it is a inbuilt module in python's library
 import speech_recognition as sr
 import wikipedia
 import webbrowser #inbuilt module this helps to contact to browser like google bing and all
-import os #in this oroject it  is used for songs which are stored locally in our computer
-import random #this is used to get the random number of song  and to open vs code
+import os #in this project it  is used for songs which are stored locally in our computer
+import random #this is used to get the random song  which is stored locally in the system of a user  and to open vs code
 import smtplib 
 
 engine=pyttsx3.init('sapi5')
@@ -14,7 +14,7 @@ voices=engine.getProperty('voices') #getting details of your voices
 
 # print(voices[0].id)    -->Note voices[0].id is a male voice whose name is David which inbuilt in your computer
 # print(voices[1].id)   -->Female voice whose name is Hazel
-#you can above any one voice and you can add external voices
+#you can choose any one voice and you can add external voices also
 
 engine.setProperty('voice',voices[0].id)
 # engine.setProperty('voice',voices[1].id)
@@ -46,7 +46,7 @@ def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pauses_threshold=2 #means you can take upto max pause of 2 sec while speaking in between
+        r.pause_threshold=2 #means you can take upto max pause of 2 sec while speaking in between
         audio=r.listen(source)
         
     try:
@@ -62,7 +62,7 @@ def takeCommand():
         
 if __name__=="__main__":
     wishMe()
-     #logic to execute
+ #logic to execute
     while True:
         query=takeCommand().lower()
         
@@ -92,17 +92,29 @@ if __name__=="__main__":
         #     print(songs)
         #     rand=random.randint(1, 30)
         #     os.startfile(os.path.join(musc_dir,songs[rand]))
+        
         # i don't have songs locally in my computer thats why i just mention the way to play song
+        elif 'open LeetCode' in query:
+            webbrowser.open("https://leetcode.com/")
+        elif 'open Geeks for Geeks' in query:
+            webbrowser.open("https://www.geeksforgeeks.org/")
+        elif 'open MDN documentation' in query:
+            webbrowser.open("https://developer.mozilla.org/en-US/")
+        elif 'open gmail' in query:
+            webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
+        elif 'open Linkedin' in query:
+            webbrowser.open("https://www.linkedin.com/in/azaan-suhail-272230239/")
         elif 'the time' in query:
             now_time=datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir right now time is {now_time}")
         elif 'open vscode' in query:
             vs_code_path="C:\\Users\\Azaan Suhail\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(vs_code_path)
+        elif 'open postman' in query:
+            post_man_path="C:\\Users\\Azaan Suhail\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Postman\\Postman.exe"
+            os.startfile(post_man_path)
             
         #you can send email to any body using smtp lib python library
         
         #---------------------Further addition will be done very shortly-----------------------------#
             
-   
-    
